@@ -1,3 +1,57 @@
+# Diagram
+![Flow chart](./public/diagram.svg)
+
+# Components
+### App Component
+- This is the root component rendering everything.
+- Holds the state for favorite players, background color and filtering.
+- Implements a method for fetching data through the API service layer.
+- Featuring two panels:
+  - #### Left Panel
+    - Responsible for fetching and displaying (Using the Generic List Component) the list of players. 
+    - Implements filtering functionality.
+    - Handles marking players as favorites.
+    - Communicates with the API service to fetch player data.
+  - #### Right Panel
+    - Displays (Using the Generic List Component) the list of favorite players.
+    - Implements the removal of players from the favorites list.
+
+### Generic List Component
+- Allows passing a state and display it with control over styling and typing
+
+### Header Component
+- Displays UI title
+- Implements a 3rd-party library for color picking.
+- Allows changing the right panel background color.
+
+# Services
+### API Service
+- Handles API requests to fetch players data.
+- Utilizes the 'https://www.balldontlie.io/api/v1/players' endpoint.
+- Interfaces: 
+  ```typescript
+  interface Team {
+    id: number,
+    abbreviation: string,
+    city: string,
+    conference: string,
+    division: string,
+    full_name: string,
+    name: string,
+  }
+  
+  interface Player {
+    id: number,
+    first_name: string,
+    height_feet: number,
+    height_inches: number,
+    last_name: string,
+    position: string,
+    team: Team,
+    weight_pounds: number,
+  }
+  ```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
